@@ -40,9 +40,15 @@
       border-bottom:4px solid var(--primary);
     }
     .wrap{max-width:1100px;margin:0 auto}
-    .brand{display:flex;align-items:center;gap:14px;margin-bottom:8px}
-    .brand img{height:56px}
-    .brand .wordmark{font-weight:800;letter-spacing:.5px}
+    .brand{display:flex;align-items:center;gap:16px;margin-bottom:8px}
+    /* 🔵 로고 크게 (데스크톱) */
+    .brand img{height:96px;width:auto;display:block}
+    /* 모바일에서 적당히 */
+    @media (max-width:640px){
+      .brand img{height:72px}
+    }
+    .brand .wordmark{font-weight:800;letter-spacing:.5px;font-size:20px}
+
     .site-nav{
       position:sticky; top:0; z-index:50;
       background:rgba(11,27,43,.9); backdrop-filter:saturate(120%) blur(6px);
@@ -52,7 +58,7 @@
     .site-nav a{color:#fff;text-decoration:none;font-weight:600}
     .site-nav a:hover{color:#cfe6ff;text-decoration:underline}
     .badge{display:inline-block;background:#cfe6ff14;color:#e8f1ff;padding:5px 10px;border-radius:999px;font-size:12px;border:1px solid #2a4265}
-    .hero h1{font-size:36px;margin:12px 0 10px}
+    .hero h1{font-size:40px;margin:12px 0 10px}
     .hero p{color:#E5E7EB;margin:0 0 24px}
 
     .btn-row{display:flex;gap:12px;flex-wrap:wrap}
@@ -120,11 +126,12 @@
   }
   </script>
 </head>
-<body>
+<body id="top">
   <!-- Header / Hero -->
   <header>
     <div class="wrap hero" role="banner">
       <div class="brand" aria-label="브랜드">
+        <!-- 🔵 로고 파일명은 저장소의 logo.png 를 사용 -->
         <img src="logo.png" alt="유아플랜 로고" />
         <div class="wordmark">YOUAREPLAN · 정책자금 컨설팅</div>
       </div>
@@ -154,7 +161,7 @@
   <section id="about">
     <div class="wrap">
       <h2>왜 유아플랜인가</h2>
-      <p class="sub">정부기관 스타일의 표준화 프로세스로 **정확성·투명성·추적성**을 확보합니다.</p>
+      <p class="sub">정부기관 스타일의 표준화 프로세스로 <strong>정확성·투명성·추적성</strong>을 확보합니다.</p>
       <div class="grid cols-3">
         <div class="card"><strong>표준화 DB</strong><br>정부·공공 공고를 구조화해 일관성 있게 비교합니다.</div>
         <div class="card"><strong>요건 매칭</strong><br>업력·업종·체납 등 핵심 조건을 한눈에 정리합니다.</div>
