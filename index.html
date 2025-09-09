@@ -46,9 +46,9 @@
 
         .brand {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 12px;
+            text-align: center;
         }
 
         .brand-logo-container {
@@ -56,18 +56,35 @@
             align-items: center;
             gap: 16px;
             text-decoration: none;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .brand-logo-container img {
+        .logo-img {
             height: 60px; /* PC에서 로고 크기 */
             width: auto;
             filter: drop-shadow(0 0 4px rgba(255, 255, 255, .8));
         }
 
-        .brand .wordmark {
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .brand-name {
+            font-size: 24px;
             font-weight: 700;
-            font-size: 22px;
             color: #fff;
+            line-height: 1;
+        }
+
+        .wordmark {
+            font-weight: 400;
+            font-size: 14px;
+            color: #fff;
+            opacity: 0.7;
+            margin-top: 4px;
         }
 
         @media (max-width: 640px) {
@@ -76,12 +93,21 @@
                 gap: 8px;
             }
 
-            .brand-logo-container img {
+            .brand-text {
+                align-items: center;
+            }
+
+            .logo-img {
                 height: 120px; /* 모바일에서 로고 크기 */
             }
 
-            .brand .wordmark {
-                font-size: 18px;
+            .brand-name {
+                font-size: 22px;
+            }
+
+            .wordmark {
+                font-size: 14px;
+                font-weight: 500;
             }
         }
 
@@ -169,8 +195,11 @@
         <div class="wrap hero" role="banner">
             <div class="brand" aria-label="브랜드">
                 <a href="#" class="brand-logo-container">
-                    <img src="logo.png" alt="유아플랜 로고" />
-                    <div class="wordmark">정책자금 컨설팅</div>
+                    <img src="logo.png" alt="유아플랜 로고" class="logo-img" />
+                    <div class="brand-text">
+                        <span class="brand-name">유아플랜</span>
+                        <span class="wordmark">정책자금 컨설팅</span>
+                    </div>
                 </a>
             </div>
             <nav class="site-nav">
