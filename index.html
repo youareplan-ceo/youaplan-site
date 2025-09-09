@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>유아플랜 정책자금 컨설팅</title>
+  <meta name="description" content="정책자금, AI가 분석하고 사람이 결정합니다. 유아플랜은 실시간 공고·요건을 표준화해 맞춤 매칭을 투명하게 제시합니다.">
+  <style>
+    :root{
+      --primary:#005BAC; /* 정부 파랑 */
+      --navy:#0B1B2B;
+      --text:#111827;
+      --muted:#6B7280;
+      --border:#E5E7EB;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Pretendard,Noto Sans KR,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+    header{background:linear-gradient(180deg,var(--navy),#0f2740);color:#fff;padding:56px 20px;border-bottom:4px solid var(--primary)}
+    .wrap{max-width:1080px;margin:0 auto}
+    .hero h1{font-size:36px;margin:0 0 10px}
+    .hero p{color:#E5E7EB;margin:0 0 24px}
+    .cta{display:inline-block;background:var(--primary);color:#fff;padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.08)}
+    .cta:hover{transform:translateY(-1px)}
+    section{padding:48px 20px;border-bottom:1px solid var(--border)}
+    h2{font-size:24px;margin:0 0 16px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{border:1px solid var(--border);border-radius:var(--radius);padding:20px;background:#fff}
+    .badge{display:inline-block;background:#eef5fb;color:var(--primary);padding:4px 10px;border-radius:999px;font-size:12px;border:1px solid #d5e6f7}
+    .process{counter-reset:step}
+    .process li{list-style:none;margin:10px 0;padding:10px 14px;border-left:4px solid var(--primary);background:#f9fafb;border-radius:8px}
+    footer{padding:32px 20px;color:#6b7280}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .ghost{display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid var(--border);text-decoration:none;color:var(--text);background:#fff}
+    iframe{width:100%;border:1px solid var(--border);border-radius:var(--radius);min-height:720px;background:#fff}
+    .notice{font-size:14px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div class="badge">YOUAPLAN — 정책자금 컨설팅</div>
+      <h1>정책자금, <u>AI가 분석</u>하고 <u>사람이 결정</u>합니다.</h1>
+      <p>실시간 공고·요건을 표준화 데이터로 분석하고, 회장님의 상황에 맞는 매칭을 투명하게 제시합니다.</p>
+      <div class="btn-row">
+        <a class="cta" href="https://survey.youareplan.co.kr" target="_blank" rel="noopener">1분 만에 1차 진단 시작</a>
+        <a class="ghost" href="#apply">페이지에서 바로 작성하기</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <h2>왜 유아플랜인가</h2>
+      <div class="grid cols-3">
+        <div class="card"><strong>표준화 DB</strong><br>정부·공공 공고를 구조화해 일관성 있게 비교합니다.</div>
+        <div class="card"><strong>요건 매칭</strong><br>업력·업종·체납 등 핵심 조건을 한눈에 정리합니다.</div>
+        <div class="card"><strong>사람이 최종 판단</strong><br>AI 분석을 보조로, 컨설턴트가 책임 있게 안내합니다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>진행 절차</h2>
+      <ol class="process">
+        <li>정보 수집 (기업마당·소진공·신보 등)</li>
+        <li>요건 매칭 (업력·업종·세금체납 여부)</li>
+        <li>결과 요약 및 우선순위 제시</li>
+        <li>상담/서류 준비</li>
+        <li>신청·실행 및 추적</li>
+      </ol>
+      <p class="notice">* 자동매매 등 불법 영역은 일절 관여하지 않으며, 컴플라이언스를 우선합니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>자주 묻는 질문</h2>
+      <div class="grid cols-3">
+        <div class="card"><strong>업력 없어도 가능한가요?</strong><br>공고마다 다릅니다. 예비창업 대상 프로그램도 있으니 1차 진단으로 확인합니다.</div>
+        <div class="card"><strong>체납이 있으면 불가인가요?</strong><br>대부분 제한되지만, 대안 여부를 사전 검토합니다.</div>
+        <div class="card"><strong>기간은 얼마나 걸리나요?</strong><br>보통 2–6주. 기관/서류 준비도에 따라 달라집니다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply">
+    <div class="wrap">
+      <h2>1차 진단 — 바로 작성</h2>
+      <iframe src="https://survey.youareplan.co.kr" title="유아플랜 1차 설문"></iframe>
+      <p class="notice">로딩에 다소 시간이 걸릴 수 있습니다.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div><strong>유아플랜 컨설팅</strong> · youaplan.kr</div>
+      <div class="notice">개인정보는 1차 진단·상담 목적에만 사용하며 보관·파기 정책을 준수합니다.</div>
+    </div>
+  </footer>
+</body>
+</html>
