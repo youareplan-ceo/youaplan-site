@@ -3,103 +3,192 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>유아플랜 컨설팅 — 정책자금 컨설팅</title>
+  <title>유아플랜 컨설팅 | 정책자금 컨설팅 · 표준화 매칭 · 신뢰 기반</title>
   <meta name="description" content="정책자금, AI가 분석하고 사람이 결정합니다. 유아플랜은 실시간 공고·요건을 표준화해 맞춤 매칭을 투명하게 제시합니다.">
-  <!-- 🔹 파비콘 -->
+  <meta name="theme-color" content="#0B1B2B" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="유아플랜 컨설팅 | 정책자금 컨설팅" />
+  <meta property="og:description" content="실시간 공고 표준화 DB + 요건 매칭 + 컨설턴트 최종 판단. 투명하고 신뢰 가능한 정책자금 컨설팅." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://youareplan.co.kr" />
+  <meta property="og:image" content="https://youareplan.co.kr/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- 파비콘 -->
   <link rel="icon" type="image/png" href="logo.png" />
+
   <style>
     :root{
-      --primary:#005BAC; /* 정부 파랑 */
-      --navy:#0B1B2B;
-      --text:#111827;
-      --muted:#6B7280;
-      --border:#E5E7EB;
+      --primary:#005BAC;      /* 정부 파랑 */
+      --navy:#0B1B2B;         /* 헤더 네이비 */
+      --text:#111827;         /* 본문 */
+      --muted:#6B7280;        /* 설명 */
+      --border:#E5E7EB;       /* 경계 */
+      --bg:#ffffff;           /* 배경 */
       --radius:12px;
+      --shadow:0 6px 24px rgba(16,24,40,.06);
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;}
-    body{margin:0;font-family:Noto Sans KR,Pretendard,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter, Pretendard, "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;color:var(--text);background:var(--bg);line-height:1.65}
 
-    /* Header */
+    /* Header / Hero */
     header{
       background:linear-gradient(180deg,var(--navy),#0f2740);
-      color:#fff;padding:56px 20px 20px;
+      color:#fff; padding:56px 20px 28px;
       border-bottom:4px solid var(--primary);
     }
-    .wrap{max-width:1080px;margin:0 auto}
-    .hero h1{font-size:36px;margin:0 0 10px}
-    .hero p{color:#E5E7EB;margin:0 0 24px}
-
-    /* CTA 버튼 */
-    .cta{display:inline-block;background:var(--primary);color:#fff;padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.08);transition:.2s}
-    .cta:hover{transform:translateY(-3px);background:#003d80}
-    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
-    .ghost{display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid var(--border);text-decoration:none;color:var(--text);background:#fff}
-
-    /* Section */
-    section{padding:48px 20px;border-bottom:1px solid var(--border)}
-    h2{font-size:24px;margin:0 0 16px}
-    .grid{display:grid;gap:16px}
-    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-    .card{border:1px solid var(--border);border-radius:var(--radius);padding:20px;background:#fff}
-    .badge{display:inline-block;background:#eef5fb;color:var(--primary);padding:4px 10px;border-radius:999px;font-size:12px;border:1px solid #d5e6f7}
-    .process{counter-reset:step}
-    .process li{list-style:none;margin:10px 0;padding:10px 14px;border-left:4px solid var(--primary);background:#f9fafb;border-radius:8px}
-    iframe{width:100%;border:1px solid var(--border);border-radius:var(--radius);min-height:720px;background:#fff}
-    .notice{font-size:14px;color:var(--muted)}
-
-    /* Sticky Nav */
+    .wrap{max-width:1100px;margin:0 auto}
+    .brand{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+    .brand img{height:56px}
+    .brand .wordmark{font-weight:800;letter-spacing:.5px}
     .site-nav{
       position:sticky; top:0; z-index:50;
-      background:rgba(11,27,43,0.95);
-      backdrop-filter:saturate(120%) blur(4px);
-      display:flex; gap:20px; padding:12px 0; margin:10px 0 20px 0;
-      border-bottom:1px solid rgba(255,255,255,.08)
+      background:rgba(11,27,43,.9); backdrop-filter:saturate(120%) blur(6px);
+      display:flex; gap:22px; padding:12px 12px; margin:12px -12px 22px;
+      border:1px solid rgba(255,255,255,.08); border-radius:10px;
     }
     .site-nav a{color:#fff;text-decoration:none;font-weight:600}
-    .site-nav a:hover{text-decoration:underline}
+    .site-nav a:hover{color:#cfe6ff;text-decoration:underline}
+    .badge{display:inline-block;background:#cfe6ff14;color:#e8f1ff;padding:5px 10px;border-radius:999px;font-size:12px;border:1px solid #2a4265}
+    .hero h1{font-size:36px;margin:12px 0 10px}
+    .hero p{color:#E5E7EB;margin:0 0 24px}
+
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .cta{display:inline-block;background:var(--primary);color:#fff;padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:700;border:1px solid rgba(255,255,255,.08);transition:.18s}
+    .cta:hover{transform:translateY(-3px);background:#004a92}
+    .ghost{display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid var(--border);text-decoration:none;color:#0b1b2b;background:#fff}
+
+    /* Sections */
+    section{padding:56px 20px;border-bottom:1px solid var(--border)}
+    h2{font-size:24px;margin:0 0 16px}
+    .sub{color:var(--muted);font-size:14px;margin:2px 0 18px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){
+      .cols-2{grid-template-columns:1fr 1fr}
+      .cols-3{grid-template-columns:repeat(3,1fr)}
+      .cols-4{grid-template-columns:repeat(4,1fr)}
+    }
+    .card{border:1px solid var(--border);border-radius:var(--radius);padding:20px;background:#fff; box-shadow:var(--shadow)}
+    .notice{font-size:14px;color:var(--muted)}
+    .process{counter-reset:step}
+    .process li{list-style:none;margin:10px 0;padding:12px 14px;border-left:4px solid var(--primary);background:#f9fafb;border-radius:8px}
+
+    /* Trust bar */
+    .trust{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+    .trust .tag{border:1px dashed var(--border);border-radius:999px;padding:6px 12px;background:#fff;font-size:12px;color:#334155}
+
+    /* Table look */
+    .table{border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    .row{display:grid;grid-template-columns:160px 1fr;border-top:1px solid var(--border)}
+    .row:first-child{border-top:none}
+    .cell{padding:12px 16px}
+    .head{background:#f8fafc;font-weight:700}
+
+    /* Iframe (설문) */
+    iframe{width:100%;border:1px solid var(--border);border-radius:var(--radius);min-height:720px;background:#fff}
 
     /* Footer */
-    footer{padding:32px 20px;color:#6b7280;background:#f9fafb}
-    footer .wrap{display:flex;flex-direction:column;gap:8px}
+    footer{padding:36px 20px;color:#6b7280;background:#f9fafb}
+    footer .wrap{display:grid;gap:8px}
+    .policy a{color:#334155;text-decoration:none}
+    .policy a:hover{text-decoration:underline}
+
+    /* Floating Back-to-top */
+    .top{position:fixed;right:16px;bottom:18px;padding:10px 12px;border-radius:999px;background:var(--navy);color:#fff;text-decoration:none;font-size:12px;border:1px solid #173150}
+    .top:hover{background:#0b2c55}
   </style>
+
+  <!-- 구조화 데이터 (검색/미리보기용) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "유아플랜 컨설팅",
+    "url": "https://youareplan.co.kr",
+    "logo": "https://youareplan.co.kr/logo.png",
+    "sameAs": ["https://pf.kakao.com/_LWxexmn"],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "youareplan@naver.com",
+      "telephone": "1661-8804",
+      "areaServed": "KR",
+      "availableLanguage": ["ko"]
+    }]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header / Hero -->
   <header>
-    <div class="wrap hero">
-      <img src="logo.png" alt="유아플랜 로고" style="height:60px; margin-bottom:10px;">
-      <!-- 네비게이션 -->
-      <nav class="site-nav">
+    <div class="wrap hero" role="banner">
+      <div class="brand" aria-label="브랜드">
+        <img src="logo.png" alt="유아플랜 로고" />
+        <div class="wordmark">YOUAREPLAN · 정책자금 컨설팅</div>
+      </div>
+
+      <!-- Sticky Nav -->
+      <nav class="site-nav" aria-label="주 메뉴">
         <a href="#about">회사소개</a>
         <a href="#services">서비스</a>
         <a href="#notice">공지사항</a>
+        <a href="#cases">사례/신뢰</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">문의하기</a>
       </nav>
-      <div class="badge">YOUAREPLAN — 정책자금 컨설팅</div>
+
+      <span class="badge">표준화 DB · 요건 매칭 · 컨설턴트 최종 판단</span>
       <h1>정책자금, <u>AI가 분석</u>하고 <u>사람이 결정</u>합니다.</h1>
       <p>실시간 공고·요건을 표준화 데이터로 분석하고, 회장님의 상황에 맞는 매칭을 투명하게 제시합니다.</p>
-      <div class="btn-row">
+
+      <div class="btn-row" role="group" aria-label="핵심 행동">
         <a class="cta" href="https://survey.youareplan.co.kr" target="_blank" rel="noopener">1분 만에 1차 진단 시작</a>
-        <a class="ghost" href="#apply">페이지에서 바로 작성하기</a>
+        <a class="ghost" href="#apply">페이지에서 바로 작성</a>
       </div>
     </div>
   </header>
 
+  <!-- 왜 유아플랜 -->
   <section id="about">
     <div class="wrap">
       <h2>왜 유아플랜인가</h2>
+      <p class="sub">정부기관 스타일의 표준화 프로세스로 **정확성·투명성·추적성**을 확보합니다.</p>
       <div class="grid cols-3">
         <div class="card"><strong>표준화 DB</strong><br>정부·공공 공고를 구조화해 일관성 있게 비교합니다.</div>
         <div class="card"><strong>요건 매칭</strong><br>업력·업종·체납 등 핵심 조건을 한눈에 정리합니다.</div>
         <div class="card"><strong>사람이 최종 판단</strong><br>AI 분석을 보조로, 컨설턴트가 책임 있게 안내합니다.</div>
       </div>
+
+      <div class="trust" style="margin-top:18px">
+        <span class="tag">개인정보 최소수집·목적외 이용 금지</span>
+        <span class="tag">진행 단계·결과 리포트 제공</span>
+        <span class="tag">컴플라이언스 최우선</span>
+      </div>
     </div>
   </section>
 
+  <!-- 서비스 -->
   <section id="services">
     <div class="wrap">
-      <h2>진행 절차</h2>
+      <h2>서비스 구성</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <strong>① 1차 진단(무료)</strong><br>
+          표준 설문으로 요건 적합성, 우선순위 후보를 빠르게 도출합니다.
+        </div>
+        <div class="card">
+          <strong>② 컨설팅 & 서류 준비</strong><br>
+          신청 전략 수립, 증빙 체크리스트, 제출 문서 검토/작성까지 전담 지원.
+        </div>
+        <div class="card">
+          <strong>③ 실행 & 사후 추적</strong><br>
+          접수/심사·보완 대응, 결과 리포트, 차기 스텝 가이드 제공.
+        </div>
+      </div>
+
+      <h3 style="margin:26px 0 10px">진행 절차</h3>
       <ol class="process">
         <li>정보 수집 (기업마당·소진공·신보 등)</li>
         <li>요건 매칭 (업력·업종·세금체납 여부)</li>
@@ -107,32 +196,66 @@
         <li>상담/서류 준비</li>
         <li>신청·실행 및 추적</li>
       </ol>
-      <p class="notice">* 자동매매 등 불법 영역은 일절 관여하지 않으며, 컴플라이언스를 우선합니다.</p>
+      <p class="notice">* 자동매매 등 불법 영역은 일절 관여하지 않으며, 관련 법규를 철저히 준수합니다.</p>
     </div>
   </section>
 
-  <!-- 🔹 공지사항 섹션 -->
+  <!-- 공지 -->
   <section id="notice">
     <div class="wrap">
       <h2>공지사항</h2>
-      <ul>
-        <li>2025년 9월 — 유아플랜 정책자금 진단 서비스 오픈</li>
-        <li>2025년 10월 — 정책자금 매칭 알고리즘 업그레이드 예정</li>
-      </ul>
+      <div class="table" role="table" aria-label="공지 목록">
+        <div class="row head" role="row">
+          <div class="cell" role="columnheader">날짜</div>
+          <div class="cell" role="columnheader">제목</div>
+        </div>
+        <div class="row" role="row">
+          <div class="cell" role="cell">2025-09-09</div>
+          <div class="cell" role="cell">유아플랜 정책자금 진단 서비스 오픈</div>
+        </div>
+        <div class="row" role="row">
+          <div class="cell" role="cell">2025-10 예정</div>
+          <div class="cell" role="cell">매칭 알고리즘/리포트 고도화 업데이트</div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- 사례/신뢰 -->
+  <section id="cases">
+    <div class="wrap">
+      <h2>사례 & 신뢰</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <strong>제조 스타트업 A</strong><br>
+          업력·매출 패턴 반영해 보조금 2건 동시 매칭, 서류 보완 1회로 통과.
+        </div>
+        <div class="card">
+          <strong>서비스 기업 B</strong><br>
+          체납 이슈로 제한적이었으나 대체 프로그램 제안·신청으로 가결.
+        </div>
+        <div class="card">
+          <strong>예비창업 C</strong><br>
+          예비창업 특화 과제 선별·사업계획서 코칭으로 최초 지원 성공.
+        </div>
+      </div>
+      <p class="notice">* 실제 기업의 맥락을 반영한 요약 사례입니다. 상세 공유는 별도 상담 후 가능합니다.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
   <section id="faq">
     <div class="wrap">
       <h2>자주 묻는 질문</h2>
       <div class="grid cols-3">
         <div class="card"><strong>업력 없어도 가능한가요?</strong><br>공고마다 다릅니다. 예비창업 대상 프로그램도 있으니 1차 진단으로 확인합니다.</div>
-        <div class="card"><strong>체납이 있으면 불가인가요?</strong><br>대부분 제한되지만, 대안 여부를 사전 검토합니다.</div>
+        <div class="card"><strong>체납이 있으면 불가인가요?</strong><br>대부분 제한되지만, 상황별 대안 여부를 사전 검토합니다.</div>
         <div class="card"><strong>기간은 얼마나 걸리나요?</strong><br>보통 2–6주. 기관/서류 준비도에 따라 달라집니다.</div>
       </div>
     </div>
   </section>
 
+  <!-- 설문 임베드 -->
   <section id="apply">
     <div class="wrap">
       <h2>1차 진단 — 바로 작성</h2>
@@ -141,27 +264,42 @@
     </div>
   </section>
 
+  <!-- 문의 -->
   <section id="contact">
     <div class="wrap">
       <h2>문의하기</h2>
-      <div class="card">
-        <p><strong>유아플랜 컨설팅</strong></p>
-        <p>대표번호: 1661-8804</p>
-        <p>이메일: <a href="mailto:youareplan@naver.com">youareplan@naver.com</a></p>
-        <p>상담 가능 시간: 평일 09:00–18:00</p>
-        <p><a href="https://pf.kakao.com/_LWxexmn" target="_blank">카카오톡 상담 바로가기</a></p>
-        <p class="notice">* 이메일/연락처는 원하시는 대로 언제든 수정 가능합니다.</p>
+      <div class="grid cols-2">
+        <div class="card">
+          <p><strong>유아플랜 컨설팅</strong></p>
+          <p>대표번호: 1661-8804</p>
+          <p>이메일: <a href="mailto:youareplan@naver.com">youareplan@naver.com</a></p>
+          <p>상담 가능 시간: 평일 09:00–18:00</p>
+          <p><a href="https://pf.kakao.com/_LWxexmn" target="_blank" rel="noopener">카카오톡 상담 바로가기</a></p>
+          <p class="notice">* 이메일/연락처는 언제든지 업데이트 가능합니다.</p>
+        </div>
+        <div class="card">
+          <strong>오시는 길 / 사업자 정보</strong>
+          <div class="table" style="margin-top:10px">
+            <div class="row"><div class="cell head">상호</div><div class="cell">유아플랜 컨설팅</div></div>
+            <div class="row"><div class="cell head">사업자번호</div><div class="cell">515-10-64034</div></div>
+            <div class="row"><div class="cell head">대표</div><div class="cell">김대환</div></div>
+            <div class="row"><div class="cell head">웹사이트</div><div class="cell"><a href="https://youareplan.co.kr">youareplan.co.kr</a></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="wrap">
       <div><strong>유아플랜 컨설팅</strong> · youareplan.co.kr</div>
-      <div>사업자등록번호: 515-10-64034 · 대표: 김대환</div>
-      <div><a href="#">개인정보처리방침</a> · <a href="#">이용약관</a></div>
-      <div class="notice">© 2025 YouArePlan Consulting. 모든 권리 보유.</div>
+      <div class="policy"><a href="#">개인정보처리방침</a> · <a href="#">이용약관</a></div>
+      <div class="notice">© 2025 YouArePlan Consulting. All rights reserved.</div>
     </div>
   </footer>
+
+  <!-- Back to top -->
+  <a class="top" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">맨 위로</a>
 </body>
 </html>
