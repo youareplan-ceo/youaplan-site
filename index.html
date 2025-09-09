@@ -40,14 +40,17 @@
       border-bottom:4px solid var(--primary);
     }
     .wrap{max-width:1100px;margin:0 auto}
-    .brand{display:flex;align-items:center;gap:16px;margin-bottom:8px}
-    /* 🔵 로고 크게 (데스크톱) */
-    .brand img{height:96px;width:auto;display:block}
-    /* 모바일에서 적당히 */
-    @media (max-width:640px){
-      .brand img{height:72px}
+
+    .brand{display:flex;align-items:center;gap:18px;margin-bottom:8px}
+    /* ✅ 로고 크게 + 어두운 배경에서 흰색처럼 보이게 */
+    .brand img{
+      height:120px; width:auto; display:block;
+      filter:brightness(0) invert(1);           /* 색상 반전(임시) */
     }
-    .brand .wordmark{font-weight:800;letter-spacing:.5px;font-size:20px}
+    @media (max-width:640px){
+      .brand img{height:84px}
+    }
+    .brand .wordmark{font-weight:800;letter-spacing:.5px;font-size:22px}
 
     .site-nav{
       position:sticky; top:0; z-index:50;
@@ -57,8 +60,9 @@
     }
     .site-nav a{color:#fff;text-decoration:none;font-weight:600}
     .site-nav a:hover{color:#cfe6ff;text-decoration:underline}
-    .badge{display:inline-block;background:#cfe6ff14;color:#e8f1ff;padding:5px 10px;border-radius:999px;font-size:12px;border:1px solid #2a4265}
-    .hero h1{font-size:40px;margin:12px 0 10px}
+
+    .badge{display:inline-block;background:#cfe6ff14;color:#e8f1ff;padding:6px 12px;border-radius:999px;font-size:12px;border:1px solid #2a4265}
+    .hero h1{font-size:42px;margin:12px 0 10px}
     .hero p{color:#E5E7EB;margin:0 0 24px}
 
     .btn-row{display:flex;gap:12px;flex-wrap:wrap}
@@ -106,7 +110,7 @@
     .top:hover{background:#0b2c55}
   </style>
 
-  <!-- 구조화 데이터 (검색/미리보기용) -->
+  <!-- 구조화 데이터 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -131,7 +135,7 @@
   <header>
     <div class="wrap hero" role="banner">
       <div class="brand" aria-label="브랜드">
-        <!-- 🔵 로고 파일명은 저장소의 logo.png 를 사용 -->
+        <!-- 현재 저장소의 logo.png 사용(필요시 logo-white.png로 교체하고 filter 제거) -->
         <img src="logo.png" alt="유아플랜 로고" />
         <div class="wordmark">YOUAREPLAN · 정책자금 컨설팅</div>
       </div>
@@ -254,7 +258,7 @@
   <section id="faq">
     <div class="wrap">
       <h2>자주 묻는 질문</h2>
-      <div class="grid cols-3">
+    <div class="grid cols-3">
         <div class="card"><strong>업력 없어도 가능한가요?</strong><br>공고마다 다릅니다. 예비창업 대상 프로그램도 있으니 1차 진단으로 확인합니다.</div>
         <div class="card"><strong>체납이 있으면 불가인가요?</strong><br>대부분 제한되지만, 상황별 대안 여부를 사전 검토합니다.</div>
         <div class="card"><strong>기간은 얼마나 걸리나요?</strong><br>보통 2–6주. 기관/서류 준비도에 따라 달라집니다.</div>
