@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>유아플랜 컨설팅 - 정책자금 컨설팅</title>
+  <title>유아플랜 컨설팅 — 정책자금 컨설팅</title>
   <meta name="description" content="정책자금, AI가 분석하고 사람이 결정합니다. 유아플랜은 실시간 공고·요건을 표준화해 맞춤 매칭을 투명하게 제시합니다.">
+  <!-- 🔹 파비콘 -->
+  <link rel="icon" type="image/png" href="logo.png" />
   <style>
     :root{
       --primary:#005BAC; /* 정부 파랑 */
@@ -15,13 +17,26 @@
       --radius:12px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Pretendard,Noto Sans KR,sans-serif;color:var(--text);background:#fff;line-height:1.6}
-    header{background:linear-gradient(180deg,var(--navy),#0f2740);color:#fff;padding:56px 20px;border-bottom:4px solid var(--primary)}
+    html{scroll-behavior:smooth;}
+    body{margin:0;font-family:Noto Sans KR,Pretendard,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+
+    /* Header */
+    header{
+      background:linear-gradient(180deg,var(--navy),#0f2740);
+      color:#fff;padding:56px 20px 20px;
+      border-bottom:4px solid var(--primary);
+    }
     .wrap{max-width:1080px;margin:0 auto}
     .hero h1{font-size:36px;margin:0 0 10px}
     .hero p{color:#E5E7EB;margin:0 0 24px}
-    .cta{display:inline-block;background:var(--primary);color:#fff;padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.08)}
-    .cta:hover{transform:translateY(-1px)}
+
+    /* CTA 버튼 */
+    .cta{display:inline-block;background:var(--primary);color:#fff;padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.08);transition:.2s}
+    .cta:hover{transform:translateY(-3px);background:#003d80}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .ghost{display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid var(--border);text-decoration:none;color:var(--text);background:#fff}
+
+    /* Section */
     section{padding:48px 20px;border-bottom:1px solid var(--border)}
     h2{font-size:24px;margin:0 0 16px}
     .grid{display:grid;gap:16px}
@@ -30,24 +45,38 @@
     .badge{display:inline-block;background:#eef5fb;color:var(--primary);padding:4px 10px;border-radius:999px;font-size:12px;border:1px solid #d5e6f7}
     .process{counter-reset:step}
     .process li{list-style:none;margin:10px 0;padding:10px 14px;border-left:4px solid var(--primary);background:#f9fafb;border-radius:8px}
-    footer{padding:32px 20px;color:#6b7280}
-    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
-    .ghost{display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid var(--border);text-decoration:none;color:var(--text);background:#fff}
     iframe{width:100%;border:1px solid var(--border);border-radius:var(--radius);min-height:720px;background:#fff}
     .notice{font-size:14px;color:var(--muted)}
+
+    /* Sticky Nav */
+    .site-nav{
+      position:sticky; top:0; z-index:50;
+      background:rgba(11,27,43,0.95);
+      backdrop-filter:saturate(120%) blur(4px);
+      display:flex; gap:20px; padding:12px 0; margin:10px 0 20px 0;
+      border-bottom:1px solid rgba(255,255,255,.08)
+    }
+    .site-nav a{color:#fff;text-decoration:none;font-weight:600}
+    .site-nav a:hover{text-decoration:underline}
+
+    /* Footer */
+    footer{padding:32px 20px;color:#6b7280;background:#f9fafb}
+    footer .wrap{display:flex;flex-direction:column;gap:8px}
   </style>
 </head>
 <body>
   <header>
     <div class="wrap hero">
-      <img src="logo.png" alt="유아플랜 로고" style="height:60px; margin-bottom:20px;">
-      <nav style="margin-top:10px; display:flex; gap:20px; font-weight:500;">
-        <a href="#about" style="color:#fff; text-decoration:none;">회사소개</a>
-        <a href="#services" style="color:#fff; text-decoration:none;">서비스</a>
-        <a href="#faq" style="color:#fff; text-decoration:none;">FAQ</a>
-        <a href="#contact" style="color:#fff; text-decoration:none;">문의하기</a>
+      <img src="logo.png" alt="유아플랜 로고" style="height:60px; margin-bottom:10px;">
+      <!-- 네비게이션 -->
+      <nav class="site-nav">
+        <a href="#about">회사소개</a>
+        <a href="#services">서비스</a>
+        <a href="#notice">공지사항</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">문의하기</a>
       </nav>
-      <div class="badge">youareplan — 정책자금 컨설팅</div>
+      <div class="badge">YOUAREPLAN — 정책자금 컨설팅</div>
       <h1>정책자금, <u>AI가 분석</u>하고 <u>사람이 결정</u>합니다.</h1>
       <p>실시간 공고·요건을 표준화 데이터로 분석하고, 회장님의 상황에 맞는 매칭을 투명하게 제시합니다.</p>
       <div class="btn-row">
@@ -82,6 +111,17 @@
     </div>
   </section>
 
+  <!-- 🔹 공지사항 섹션 -->
+  <section id="notice">
+    <div class="wrap">
+      <h2>공지사항</h2>
+      <ul>
+        <li>2025년 9월 — 유아플랜 정책자금 진단 서비스 오픈</li>
+        <li>2025년 10월 — 정책자금 매칭 알고리즘 업그레이드 예정</li>
+      </ul>
+    </div>
+  </section>
+
   <section id="faq">
     <div class="wrap">
       <h2>자주 묻는 질문</h2>
@@ -100,23 +140,27 @@
       <p class="notice">로딩에 다소 시간이 걸릴 수 있습니다.</p>
     </div>
   </section>
- 
+
   <section id="contact">
     <div class="wrap">
       <h2>문의하기</h2>
       <div class="card">
         <p><strong>유아플랜 컨설팅</strong></p>
+        <p>전화: 010-1234-5678</p>
         <p>이메일: <a href="mailto:hello@youareplan.co.kr">hello@youareplan.co.kr</a></p>
         <p>상담 가능 시간: 평일 10:00–18:00</p>
-        <p class="notice">* 이메일 주소는 원하시는 주소로 언제든 바꿀 수 있습니다.</p>
+        <p><a href="https://pf.kakao.com/_yourlink" target="_blank">카카오톡 상담 바로가기</a></p>
+        <p class="notice">* 이메일/연락처는 원하시는 대로 언제든 수정 가능합니다.</p>
       </div>
     </div>
   </section>
-  
+
   <footer>
     <div class="wrap">
       <div><strong>유아플랜 컨설팅</strong> · youareplan.co.kr</div>
-      <div class="notice">개인정보는 1차 진단·상담 목적에만 사용하며 보관·파기 정책을 준수합니다.</div>
+      <div>사업자등록번호: 123-45-67890 · 대표: 김대환</div>
+      <div><a href="#">개인정보처리방침</a> · <a href="#">이용약관</a></div>
+      <div class="notice">© 2025 YouArePlan Consulting. 모든 권리 보유.</div>
     </div>
   </footer>
 </body>
