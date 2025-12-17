@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>유아플랜 | 정책자금 컨설팅 · 정부지원금 맞춤 매칭</title>
-  <meta name="description" content="정책자금, 데이터가 분석하고 전문가가 결정합니다. 유아플랜은 실시간 공고·요건을 구조화하여 우리 기업에 맞는 자금을 투명하게 매칭합니다.">
+  <title>유아플랜 | 중소기업 자금·성장 전략 컨설팅</title>
+  <meta name="description" content="정책자금, 사업계획서, 정부지원사업, 기업인증, 경영자문까지. 유아플랜은 데이터 기반 분석과 전문가 경험으로 중소기업의 성장을 함께합니다.">
   <meta name="theme-color" content="#020617" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="유아플랜 | 정책자금 컨설팅" />
-  <meta property="og:description" content="정부지원금, 표준화 DB 기반 맞춤 매칭 · 전문가 동행 컨설팅." />
+  <meta property="og:title" content="유아플랜 | 중소기업 자금·성장 전략 컨설팅" />
+  <meta property="og:description" content="정책자금, 사업계획서, 정부지원사업, 기업인증, 경영자문. 데이터 기반 맞춤 컨설팅." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://youareplan.co.kr" />
   <meta property="og:image" content="https://youareplan.co.kr/logo.png" />
@@ -18,12 +18,15 @@
   <!-- 파비콘 -->
   <link rel="icon" type="image/jpeg" href="logo_favicon.jpg" />
 
+  <!-- 폰트: Pretendard (CDN) -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
   <style>
     :root{
-      --bg:#0b1120;           /* 전체 바탕 다크 */
-      --bg-elevated:#020617;  /* 헤더/푸터 진한 다크 */
-      --surface:#0f172a;      /* 카드 배경 */
-      --accent:#3b82f6;       /* 포인트 블루 */
+      --bg:#0b1120;
+      --bg-elevated:#020617;
+      --surface:#0f172a;
+      --accent:#3b82f6;
       --accent-soft:#1d4ed8;
       --accent-sub:#a5b4fc;
       --kakao:#FEE500;
@@ -35,100 +38,157 @@
       --shadow-soft:0 18px 45px rgba(15,23,42,.55);
       --shadow-subtle:0 10px 24px rgba(15,23,42,.4);
       --max-width:1120px;
+      --header-height:64px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Inter, Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
       background:radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
       color:var(--text);
       line-height:1.7;
+      overflow-x: hidden;
     }
 
-    a{color:inherit}
+    a{color:inherit; text-decoration: none;}
+    button{font-family:inherit; cursor: pointer;}
 
-    .wrap{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:0 20px; position: relative;}
 
     /* 고정 상단바 */
     .topbar{
       position:sticky;
       top:0;
-      z-index:40;
+      z-index:999;
       backdrop-filter:blur(18px);
-      background:rgba(2,6,23,.84);
-      border-bottom:1px solid rgba(148,163,184,.18);
+      -webkit-backdrop-filter: blur(18px);
+      background:rgba(2,6,23,.85);
+      border-bottom:1px solid rgba(148,163,184,.15);
+      transition: all 0.3s ease;
     }
     .topbar-inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      height:64px;
+      height:var(--header-height);
     }
     .brand-mini{
       display:flex;
       align-items:center;
       gap:10px;
+      z-index: 1001;
     }
     .brand-mini img{
-      height:30px;
+      height:32px;
       width:auto;
       display:block;
-      /* 다크 모드에서도 잘 보이게 보정 */
-      filter:
-        brightness(1.8)
-        contrast(1.1)
-        drop-shadow(0 0 2px rgba(15,23,42,.9))
-        drop-shadow(0 0 8px rgba(248,250,252,.95));
+      filter: brightness(1.2);
     }
     .brand-mini span{
       font-weight:700;
-      font-size:17px;
-      letter-spacing:.02em;
+      font-size:18px;
+      letter-spacing:-0.02em;
+      color: #fff;
     }
+
+    /* 데스크탑 네비게이션 */
     nav.topnav{
       display:flex;
-      gap:22px;
+      gap:28px;
       align-items:center;
-      font-size:14px;
+      font-size:15px;
       color:var(--muted);
+      font-weight: 500;
     }
     nav.topnav a{
-      text-decoration:none;
-      padding:4px 0;
+      padding:8px 0;
+      transition: color 0.2s;
     }
     nav.topnav a:hover{
-      color:var(--text);
+      color:#fff;
     }
     .nav-cta{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:8px 16px;
+      padding:8px 20px;
       border-radius:999px;
       background:linear-gradient(135deg,var(--accent),var(--accent-soft));
-      color:#fff;
-      font-size:13px;
+      color:#fff !important;
+      font-size:14px;
       font-weight:600;
-      text-decoration:none;
-      box-shadow:0 12px 30px rgba(37,99,235,.65);
-      border:1px solid rgba(191,219,254,.25);
+      box-shadow:0 4px 12px rgba(37,99,235,.3);
+      border:1px solid rgba(191,219,254,.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .nav-cta span{margin-left:4px;font-size:11px;opacity:.9}
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow:0 6px 16px rgba(37,99,235,.5);
+    }
+    .nav-cta span{margin-left:6px;font-size:11px;opacity:.9; font-weight: 400;}
+
+    /* 모바일 햄버거 버튼 */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      padding: 4px;
+      z-index: 1001;
+      color: white;
+    }
+    .mobile-menu-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* 모바일 메뉴 오버레이 */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(2, 6, 23, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 20px;
+    }
+    .mobile-menu-overlay.active {
+      right: 0;
+    }
+    .mobile-menu-overlay a {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .mobile-menu-overlay .nav-cta {
+      width: 100%;
+      max-width: 280px;
+      height: 50px;
+      font-size: 16px;
+    }
 
     @media (max-width:768px){
       nav.topnav{display:none}
-      .topbar-inner{justify-content:space-between}
+      .mobile-menu-btn {display: block;}
     }
 
     /* Hero */
     header.hero{
-      padding:32px 0 60px;
+      padding:40px 0 80px;
+      position: relative;
     }
     .hero-grid{
       display:grid;
-      gap:28px;
+      gap:40px;
       align-items:center;
     }
     @media(min-width:900px){
@@ -141,295 +201,377 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:4px 10px;
+      padding:6px 14px;
       border-radius:999px;
-      border:1px solid rgba(148,163,184,.5);
-      font-size:11px;
+      border:1px solid rgba(148,163,184,.3);
+      font-size:12px;
+      font-weight: 500;
       color:var(--muted);
-      background:rgba(15,23,42,.75);
-      margin-bottom:14px;
+      background:rgba(15,23,42,.6);
+      margin-bottom:20px;
+      backdrop-filter: blur(4px);
     }
     .eyebrow-dot{
-      width:7px;height:7px;border-radius:999px;
-      background:radial-gradient(circle,#4ade80,#22c55e 50%,transparent 52%);
-      box-shadow:0 0 0 4px rgba(34,197,94,.28);
+      width:8px;height:8px;border-radius:999px;
+      background:#22c55e;
+      box-shadow:0 0 0 4px rgba(34,197,94,.15);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34,197,94, 0.4); }
+      70% { box-shadow: 0 0 0 6px rgba(34,197,94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94, 0); }
     }
 
     .hero-title{
-      font-size:34px;
+      font-size:38px;
       font-weight:800;
       letter-spacing:-.03em;
-      margin:0 0 10px;
+      line-height: 1.3;
+      margin:0 0 16px;
+      color: white;
     }
     .hero-title span{
-      color:var(--accent-sub);
+      background: linear-gradient(to right, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     @media(max-width:768px){
-      .hero-title{font-size:26px}
+      .hero-title{font-size:28px;}
+      header.hero{padding: 30px 0 50px;}
     }
 
     .hero-sub{
-      margin:0 0 18px;
-      font-size:15px;
+      margin:0 0 28px;
+      font-size:16px;
       color:var(--muted);
+      font-weight: 400;
     }
 
     .hero-tags{
       display:flex;
       flex-wrap:wrap;
       gap:8px;
-      margin-bottom:22px;
+      margin-bottom:32px;
     }
     .tag{
-      font-size:11px;
-      padding:4px 10px;
+      font-size:13px;
+      padding:6px 14px;
       border-radius:999px;
-      border:1px solid rgba(148,163,184,.5);
+      border:1px solid rgba(148,163,184,.3);
       color:var(--muted);
-      background:rgba(15,23,42,.85);
+      background:rgba(15,23,42,.5);
+      transition: all 0.2s;
+    }
+    .tag:hover {
+      border-color: var(--accent);
+      color: var(--accent-sub);
     }
 
     .hero-cta-row{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
-      margin-bottom:16px;
+      gap:12px;
+      margin-bottom:20px;
     }
     .btn-primary{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:12px 18px;
-      border-radius:999px;
+      padding:14px 24px;
+      border-radius:12px;
+      background:var(--accent);
       background:linear-gradient(135deg,var(--accent),var(--accent-soft));
       color:#fff;
-      font-size:14px;
+      font-size:15px;
       font-weight:700;
       border:none;
       text-decoration:none;
-      box-shadow:var(--shadow-soft);
+      box-shadow:0 8px 20px rgba(37,99,235,.4);
+      transition: all 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow:0 12px 24px rgba(37,99,235,.5);
     }
     .btn-primary span{
       margin-left:6px;
-      font-size:11px;
+      font-size:12px;
       opacity:.85;
+      font-weight: 500;
     }
     .btn-kakao{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:11px 16px;
-      border-radius:999px;
+      padding:14px 24px;
+      border-radius:12px;
       background:var(--kakao);
       color:#111827;
-      font-size:13px;
+      font-size:15px;
       font-weight:700;
       text-decoration:none;
-      border:1px solid rgba(15,23,42,.08);
-      box-shadow:0 10px 24px rgba(15,23,42,.45);
+      border:none;
+      transition: all 0.2s;
     }
-    .btn-kakao span{
-      font-size:11px;
-      margin-left:4px;
-      opacity:.8;
+    .btn-kakao:hover {
+      transform: translateY(-2px);
+      filter: brightness(0.98);
     }
 
     .hero-note{
-      font-size:12px;
+      font-size:13px;
       color:var(--muted);
+      margin-top: 12px;
+      opacity: 0.8;
     }
 
     /* Hero 오른쪽 카드 */
     .hero-card{
-      background:radial-gradient(circle at top,#1f2937 0,var(--surface) 50%,#020617 100%);
+      background:rgba(15, 23, 42, 0.6);
       border-radius:var(--radius-lg);
-      padding:24px 22px;
+      padding:28px 26px;
       box-shadow:var(--shadow-soft);
-      border:1px solid rgba(148,163,184,.45);
+      border:1px solid rgba(148,163,184,.2);
       position:relative;
       overflow:hidden;
+      backdrop-filter: blur(10px);
     }
-    .hero-card::before{
-      content:"";
-      position:absolute;
-      inset:-40%;
-      background:radial-gradient(circle at 0% 0%,rgba(59,130,246,.32),transparent 55%),
-                 radial-gradient(circle at 100% 100%,rgba(168,85,247,.18),transparent 60%);
-      opacity:.55;
-      z-index:-1;
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
     }
+
     .hero-card-header{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      margin-bottom:14px;
-      font-size:12px;
+      margin-bottom:16px;
+      font-size:13px;
       color:var(--muted);
     }
     .hero-card-title{
-      font-size:18px;
+      font-size:20px;
       font-weight:700;
-      margin-bottom:4px;
+      margin-bottom:6px;
+      color: #fff;
     }
     .hero-card-pill{
       display:inline-flex;
       padding:4px 10px;
-      border-radius:999px;
-      background:rgba(15,23,42,.8);
-      border:1px solid rgba(148,163,184,.4);
+      border-radius:6px;
+      background:rgba(59, 130, 246, 0.15);
       font-size:11px;
+      font-weight: 600;
       color:var(--accent-sub);
     }
     .hero-metric-row{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:10px;
-      margin:18px 0;
-      font-size:11px;
+      gap:12px;
+      margin:24px 0;
+      font-size:12px;
     }
     .metric{
-      background:rgba(15,23,42,.85);
+      background:rgba(2, 6, 23, 0.5);
       border-radius:var(--radius-md);
-      padding:10px 10px;
-      border:1px solid rgba(31,41,55,.9);
+      padding:12px;
+      border:1px solid rgba(148,163,184, 0.1);
+      text-align: center;
     }
-    .metric-label{color:var(--muted);margin-bottom:4px}
-    .metric-value{font-weight:700;font-size:13px}
-    .metric-sub{font-size:10px;color:var(--muted)}
+    .metric-label{color:var(--muted);margin-bottom:6px; font-size: 11px;}
+    .metric-value{font-weight:700;font-size:14px; color: #fff; display: block; margin-bottom: 4px;}
+    .metric-sub{font-size:10px;color:var(--muted); opacity: 0.7;}
 
     .hero-steps{
-      margin-top:14px;
-      padding-top:10px;
-      border-top:1px dashed rgba(148,163,184,.45);
-      font-size:11px;
+      margin-top:20px;
+      padding-top:16px;
+      border-top:1px dashed rgba(148,163,184,.3);
+      font-size:12px;
       color:var(--muted);
+      line-height: 1.8;
     }
-    .hero-steps strong{color:var(--accent-sub)}
-
-    @media(max-width:768px){
-      .hero-card{margin-top:6px}
-      .hero-metric-row{grid-template-columns:1fr 1fr}
-    }
+    .hero-steps strong{color:var(--accent-sub); display: block; margin-bottom: 6px; font-size: 13px;}
 
     /* 공통 섹션 */
     section{
-      padding:30px 0 46px;
-      border-top:1px solid rgba(15,23,42,.8);
+      padding:80px 0;
+      border-top:1px solid rgba(30, 41, 59, 0.5);
+      position: relative;
     }
     section:nth-of-type(odd){
-      background:radial-gradient(circle at top left,#020617 0,#020617 40%,#020617 100%);
+      background:rgba(2, 6, 23, 0.5);
+    }
+    
+    .section-header {
+      margin-bottom: 40px;
     }
     h2.section-title{
-      font-size:20px;
-      margin:0 0 6px;
+      font-size:26px;
+      font-weight: 700;
+      margin:0 0 10px;
+      color: #fff;
     }
     p.section-sub{
-      margin:0 0 22px;
-      font-size:13px;
+      margin:0;
+      font-size:15px;
       color:var(--muted);
+      max-width: 600px;
     }
 
     /* 그리드/카드 */
     .grid{
       display:grid;
-      gap:14px;
+      gap:20px;
     }
     @media(min-width:900px){
       .cols-2{grid-template-columns:1.3fr 1.1fr}
       .cols-3{grid-template-columns:repeat(3,1fr)}
+      .cols-5{grid-template-columns:repeat(3,1fr)}
     }
+    
     .card{
       background:var(--surface);
       border-radius:var(--radius-md);
-      padding:18px 18px 16px;
+      padding:24px;
       border:1px solid var(--border);
       box-shadow:var(--shadow-subtle);
-      font-size:13px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(59, 130, 246, 0.3);
     }
     .card h3{
-      margin:0 0 8px;
-      font-size:14px;
+      margin:12px 0 8px;
+      font-size:16px;
+      color: #fff;
     }
+    .card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    
+    /* 아이콘 박스 */
+    .icon-box {
+      width: 40px; 
+      height: 40px; 
+      border-radius: 10px;
+      background: rgba(59, 130, 246, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .icon-box svg {
+      width: 20px;
+      height: 20px;
+    }
+
     .badge-soft{
       display:inline-block;
-      font-size:10px;
-      padding:3px 8px;
+      font-size:11px;
+      font-weight: 600;
+      padding:4px 10px;
       border-radius:999px;
-      border:1px solid rgba(148,163,184,.6);
-      color:var(--muted);
-      margin-bottom:4px;
+      background: rgba(30, 41, 59, 0.5);
+      border:1px solid rgba(148,163,184,.2);
+      color:var(--accent-sub);
+      margin-bottom:12px;
     }
 
     /* 프로세스 타임라인 */
     .timeline{
       position:relative;
-      padding-left:20px;
-      margin-top:4px;
+      padding-left:24px;
+      margin-top:10px;
     }
     .timeline::before{
       content:"";
       position:absolute;
-      top:4px;bottom:4px;
-      left:7px;
-      width:1px;
-      background:linear-gradient(to bottom,#4b5563,#1f2937);
-      opacity:.8;
+      top:8px;bottom:0;
+      left:9px;
+      width:2px;
+      background:rgba(75, 85, 99, 0.3);
     }
     .step{
       position:relative;
-      margin-bottom:14px;
-      padding-left:10px;
-      font-size:13px;
+      margin-bottom:24px;
+      padding-bottom: 10px;
     }
     .step:last-child{margin-bottom:0}
     .step::before{
       content:"";
       position:absolute;
-      left:-15px;
-      top:4px;
-      width:9px;height:9px;
+      left:-20px;
+      top:5px;
+      width:10px;height:10px;
       border-radius:999px;
-      background:radial-gradient(circle,var(--accent),#1d4ed8);
-      box-shadow:0 0 0 4px rgba(37,99,235,.35);
+      background:var(--accent);
+      box-shadow:0 0 0 4px rgba(37,99,235,.2);
+      z-index: 1;
     }
     .step-title{
-      font-weight:600;
-      margin-bottom:3px;
+      font-weight:700;
+      font-size: 15px;
+      margin-bottom:4px;
+      color: #fff;
     }
     .step-note{
-      font-size:12px;
+      font-size:13px;
       color:var(--muted);
+      line-height: 1.6;
     }
 
     /* FAQ */
     .faq-item{
       background:var(--surface);
       border-radius:var(--radius-md);
-      padding:14px 16px 12px;
+      padding:20px;
       border:1px solid var(--border);
-      font-size:13px;
+      transition: all 0.2s;
     }
-    .faq-q{font-weight:600;margin-bottom:4px}
-    .faq-a{color:var(--muted);font-size:12px}
+    .faq-item:hover {
+      background: rgba(30, 41, 59, 0.8);
+    }
+    .faq-q{
+      font-weight:700;
+      margin-bottom:8px;
+      font-size: 15px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .faq-q::before {
+      content: "Q.";
+      color: var(--accent);
+    }
+    .faq-a{color:var(--muted);font-size:14px; line-height: 1.6; padding-left: 24px;}
 
     /* 문의 섹션 테이블 */
     .info-table{
       border-radius:var(--radius-md);
       border:1px solid var(--border);
       overflow:hidden;
-      font-size:13px;
+      font-size:14px;
     }
     .info-row{
       display:grid;
-      grid-template-columns:120px 1fr;
+      grid-template-columns:100px 1fr;
       border-top:1px solid var(--border);
     }
     .info-row:first-child{border-top:none}
     .info-cell{
-      padding:10px 14px;
+      padding:12px 16px;
     }
     .info-head{
-      background:#020617;
+      background:rgba(2, 6, 23, 0.5);
       font-weight:600;
       color:var(--muted);
     }
@@ -437,42 +579,56 @@
     /* Footer */
     footer{
       background:var(--bg-elevated);
-      border-top:1px solid rgba(15,23,42,.9);
-      padding:18px 0 30px;
-      font-size:11px;
+      border-top:1px solid rgba(30, 41, 59, 0.6);
+      padding:40px 0;
+      font-size:12px;
       color:var(--muted);
     }
     footer .wrap{
       display:flex;
       flex-wrap:wrap;
       justify-content:space-between;
-      gap:8px;
+      gap:16px;
       align-items:center;
     }
-    .policy a{
-      color:var(--muted);
-      text-decoration:none;
-      margin-right:8px;
-    }
-    .policy a:hover{text-decoration:underline}
 
     /* Back to top */
     .top{
       position:fixed;
-      right:18px;
-      bottom:18px;
-      width:38px;height:38px;
+      right:20px;
+      bottom:20px;
+      width:44px;height:44px;
       border-radius:999px;
-      background:rgba(15,23,42,.95);
-      border:1px solid rgba(148,163,184,.5);
+      background:rgba(15,23,42,.8);
+      border:1px solid rgba(148,163,184,.3);
+      backdrop-filter: blur(4px);
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:11px;
+      font-size:12px;
       color:var(--muted);
       text-decoration:none;
+      z-index: 900;
+      transition: all 0.3s;
+      opacity: 0;
+      pointer-events: none;
     }
-    .top:hover{background:#020617;color:#e5e7eb}
+    .top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .top:hover{background:var(--accent);color:#fff; border-color: var(--accent);}
+
+    /* Scroll Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body id="top">
@@ -480,102 +636,135 @@
   <div class="topbar">
     <div class="wrap topbar-inner">
       <div class="brand-mini">
-        <img src="logo.png" alt="유아플랜 로고" />
-        <span>유아플랜 컨설팅</span>
+        <a href="#" style="display:flex; align-items:center; gap:10px;">
+          <img src="logo.png" alt="유아플랜 로고" onerror="this.style.display='none'; document.querySelector('.brand-mini span').style.marginLeft='0'"/>
+          <span>유아플랜</span>
+        </a>
       </div>
+      
+      <!-- 데스크탑 메뉴 -->
       <nav class="topnav" aria-label="주 메뉴">
-        <a href="#about">서비스 소개</a>
+        <a href="#services">서비스</a>
         <a href="#process">진행 절차</a>
         <a href="#fit">적합 고객</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">문의</a>
-        <a class="nav-cta" href="https://youareplan-landing.onrender.com" target="_blank" rel="noopener">
+        <a class="nav-cta" href="https://youareplan-landing.onrender.com" target="_blank" rel="noopener noreferrer">
           무료 상담 신청
           <span>30초 소요</span>
         </a>
       </nav>
+
+      <!-- 모바일 햄버거 버튼 -->
+      <button class="mobile-menu-btn" aria-label="메뉴 열기" onclick="toggleMenu()">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
+  </div>
+
+  <!-- 모바일 전체화면 메뉴 -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <button class="mobile-menu-btn" style="position: absolute; top: 20px; right: 20px; display:block;" onclick="toggleMenu()">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <a href="#services" onclick="toggleMenu()">서비스</a>
+    <a href="#process" onclick="toggleMenu()">진행 절차</a>
+    <a href="#fit" onclick="toggleMenu()">적합 고객</a>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <a href="#contact" onclick="toggleMenu()">문의하기</a>
+    <a class="nav-cta" href="https://youareplan-landing.onrender.com" target="_blank" rel="noopener noreferrer">
+      무료 상담 신청 <span>30초 소요</span>
+    </a>
   </div>
 
   <!-- Hero -->
   <header class="hero">
     <div class="wrap hero-grid" role="banner">
-      <div>
+      <div class="fade-up">
         <div class="eyebrow">
           <div class="eyebrow-dot"></div>
-          실시간 공고 · 요건 구조화 · 데이터 기반 매칭
+          중소기업 자금·성장 전략 파트너
         </div>
         <h1 class="hero-title">
-          우리 기업에 맞는 <span>정책자금·정부지원금</span><br />
-          데이터를 통해 먼저 선별하고, 전문가가 마지막을 책임집니다.
+          정책자금부터 경영자문까지<br/> <span>기업 성장의 모든 단계</span>를<br />
+          데이터와 전문가가 함께합니다.
         </h1>
         <p class="hero-sub">
-          유아플랜은 흩어진 공고와 복잡한 요건을 표준화 DB로 정리한 뒤,<br />
-          우리 회사의 업력·재무·현 상황을 기반으로 <strong>실행 가능한 후보만 선별</strong>해 제안합니다.
+          유아플랜은 정책자금, 사업계획서, 정부지원사업, 기업인증, 경영자문까지<br />
+          <strong>중소기업에 필요한 컨설팅을 원스톱으로 제공</strong>합니다.
         </p>
 
         <div class="hero-tags">
-          <div class="tag">정부·지자체·유관기관 공고 구조화</div>
-          <div class="tag">요건·제한사항 한눈에 비교</div>
-          <div class="tag">대표님 상황 맞춤 전략</div>
+          <div class="tag">#정책자금 컨설팅</div>
+          <div class="tag">#사업계획서 작성</div>
+          <div class="tag">#정부지원사업 매칭</div>
+          <div class="tag">#기업인증</div>
+          <div class="tag">#월정액 경영자문</div>
         </div>
 
         <div class="hero-cta-row" role="group" aria-label="상담 신청">
           <a class="btn-primary"
              href="https://youareplan-landing.onrender.com"
              target="_blank"
-             rel="noopener">
-            정책자금 무료 상담 신청
-            <span>설문 30초면 충분</span>
+             rel="noopener noreferrer">
+            무료 상담 신청
+            <span>설문 30초</span>
           </a>
           <a class="btn-kakao"
              href="http://pf.kakao.com/_LWxexmn/chat"
              target="_blank"
-             rel="noopener">
-            카카오톡 1:1 상담
-            <span>운영시간 내 응답</span>
+             rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px"><path d="M12 3C5.373 3 0 7.373 0 12.766c0 3.357 2.113 6.326 5.318 8.085l-1.127 4.197c-0.038 0.141 0.009 0.289 0.12 0.366 0.112 0.076 0.26 0.075 0.37-0.006l4.78-3.486c0.826 0.108 1.677 0.165 2.539 0.165 6.627 0 12-4.373 12-9.766C24 7.373 18.627 3 12 3z"/></svg>
+            카카오톡 상담
           </a>
         </div>
 
         <div class="hero-note">
-          * 간편 설문을 남겨주시면, 담당 컨설턴트가 프로그램 가능성·우선순위를 1차로 정리해 드립니다.
+          * 간편 설문을 남겨주시면, 컨설턴트가 맞춤 진단 결과를 무료로 안내드립니다.
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="정책자금 컨설팅 요약">
+      <aside class="hero-card fade-up" aria-label="유아플랜 컨설팅 요약" style="transition-delay: 0.1s;">
         <div class="hero-card-header">
-          <div>유아플랜 정책자금 컨설팅</div>
-          <div class="hero-card-pill">표준화 DB · 요건 매칭 · 컨설턴트 동행</div>
+          <div>유아플랜 컨설팅</div>
+          <div class="hero-card-pill">데이터 + 전문가</div>
         </div>
-        <div class="hero-card-title">정책자금·정부지원금 무료 상담 신청</div>
-        <p style="margin:4px 0 10px;font-size:12px;color:var(--muted);">
-          우리 회사의 현재 재무·업력·사업 방향을 기준으로<br />실행 가능한 후보만 선별해 드립니다.
+        <div class="hero-card-title">중소기업 성장 파트너</div>
+        <p style="margin:4px 0 10px;font-size:13px;color:var(--muted); line-height: 1.5;">
+          단순한 대행이 아닙니다.<br/>
+          우리 회사의 현 상황에서<br />
+          <strong>가장 현실적인 성장 전략</strong>을 함께 설계합니다.
         </p>
 
         <div class="hero-metric-row">
           <div class="metric">
             <div class="metric-label">진행 방식</div>
-            <div class="metric-value">데이터 + 전문가</div>
-            <div class="metric-sub">프로그램이 후보를 선별하고, 사람이 최종 판단</div>
-          </div>
-          <div class="metric">
-            <div class="metric-label">지원 유형</div>
-            <div class="metric-value">정책자금 · 보조금</div>
-            <div class="metric-sub">운전자금 · 시설자금 · 일부 R&D·사업화 과제</div>
+            <div class="metric-value">데이터 분석</div>
+            <div class="metric-sub">+ 전문가 판단</div>
           </div>
           <div class="metric">
             <div class="metric-label">서비스 범위</div>
-            <div class="metric-value">진단 → 신청</div>
-            <div class="metric-sub">프로그램 제안, 서류 전략, 접수·보완 대응</div>
+            <div class="metric-value">5개 영역</div>
+            <div class="metric-sub">원스톱 컨설팅</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">상담 비용</div>
+            <div class="metric-value">무료 진단</div>
+            <div class="metric-sub">부담 없이 시작</div>
           </div>
         </div>
 
         <div class="hero-steps">
-          <strong>진행 예시</strong><br />
-          ① 간편 설문 · 기본 정보 입력<br />
-          ② 프로그램 후보·우선순위 제안<br />
-          ③ 신청 전략·서류 준비 컨설팅<br />
-          ④ 접수·보완·결과까지 동행
+          <strong>주요 서비스</strong>
+          ① 정책자금 컨설팅<br />
+          ② 사업계획서 작성<br />
+          ③ 정부지원사업 매칭<br />
+          ④ 기업인증 컨설팅<br />
+          ⑤ 월정액 경영자문
         </div>
       </aside>
     </div>
@@ -583,29 +772,121 @@
 
   <main>
     <!-- 서비스 소개 -->
+    <section id="services">
+      <div class="wrap">
+        <div class="section-header fade-up">
+          <h2 class="section-title">유아플랜 서비스</h2>
+          <p class="section-sub">
+            중소기업 성장에 필요한 <strong>자금 조달부터 경영 전략까지</strong>, 각 단계에 맞는 전문 컨설팅을 제공합니다.
+          </p>
+        </div>
+
+        <div class="grid cols-5">
+          <!-- 서비스 1: 정책자금 -->
+          <div class="card fade-up" style="transition-delay: 0.1s;">
+            <div class="icon-box">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="badge-soft">핵심 서비스</div>
+            <h3>정책자금 컨설팅</h3>
+            <p>정부·지자체·유관기관 공고를 분석하여 우리 회사에 맞는 자금을 선별하고, 신청부터 승인까지 함께합니다.</p>
+          </div>
+          
+          <!-- 서비스 2: 사업계획서 -->
+          <div class="card fade-up" style="transition-delay: 0.2s;">
+            <div class="icon-box">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <div class="badge-soft">핵심 서비스</div>
+            <h3>사업계획서 작성</h3>
+            <p>정부과제, 투자유치, 금융기관 제출용 사업계획서를 목적에 맞게 구조화하고 설득력 있게 작성합니다.</p>
+          </div>
+
+          <!-- 서비스 3: 정부지원사업 -->
+          <div class="card fade-up" style="transition-delay: 0.3s;">
+            <div class="icon-box">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <div class="badge-soft">연계 서비스</div>
+            <h3>정부지원사업 매칭</h3>
+            <p>창업지원, R&D, 수출바우처 등 우리 회사 상황에 맞는 정부지원사업을 찾아 매칭하고 신청을 지원합니다.</p>
+          </div>
+
+          <!-- 서비스 4: 기업인증 -->
+          <div class="card fade-up" style="transition-delay: 0.4s;">
+            <div class="icon-box">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <div class="badge-soft">연계 서비스</div>
+            <h3>기업인증 컨설팅</h3>
+            <p>벤처기업, 이노비즈, 메인비즈 등 기업인증 취득을 위한 요건 분석, 서류 준비, 신청 절차를 지원합니다.</p>
+          </div>
+
+          <!-- 서비스 5: 월정액 경영자문 -->
+          <div class="card fade-up" style="transition-delay: 0.5s;">
+            <div class="icon-box">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </div>
+            <div class="badge-soft">연계 서비스</div>
+            <h3>월정액 경영자문</h3>
+            <p>일회성이 아닌 지속적인 파트너십. 월정액으로 자금 전략, 사업 방향, 정부지원 모니터링을 함께합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 차별점 -->
     <section id="about">
       <div class="wrap">
-        <h2 class="section-title">유아플랜은 무엇을 다르게 보나요?</h2>
-        <p class="section-sub">
-          “어디까지 가능할까요?” 보다 먼저, <strong>“어디까지 현실적으로 실행할 수 있는가”</strong>를 따져봅니다.
-          흩어진 공고와 사람 의존적 경험을 데이터와 구조화로 보완합니다.
-        </p>
+        <div class="section-header fade-up">
+          <h2 class="section-title">유아플랜의 차별점</h2>
+          <p class="section-sub">
+            "어디까지 가능할까요?" 보다 먼저, <strong>"어디까지 현실적으로 실행할 수 있는가"</strong>를 따져봅니다.
+          </p>
+        </div>
 
         <div class="grid cols-3">
-          <div class="card">
-            <div class="badge-soft">01 · 공고 표준화 DB</div>
-            <h3>기관·프로그램을 한 구조로 정리</h3>
-            <p>각 기관의 공고를 업력·업종·매출·보증/대출 조건 등 공통 키워드로 구조화하여, 비슷한 조건의 프로그램을 한 번에 비교합니다.</p>
+          <div class="card fade-up" style="transition-delay: 0.1s;">
+            <div class="icon-box">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+              </svg>
+            </div>
+            <div class="badge-soft">01 · 데이터 기반</div>
+            <h3>공고·요건을 구조화해서 분석</h3>
+            <p>각 기관의 제각각인 공고를 표준화된 데이터로 정리하여, 조건에 맞는 기회를 놓치지 않고 비교합니다.</p>
           </div>
-          <div class="card">
-            <div class="badge-soft">02 · 요건·제한사항 매칭</div>
-            <h3>“해도 되는지”를 먼저 체크</h3>
-            <p>체납·연체·휴·폐업 이력, 보증·대출 잔액 등 기본 제한 요건을 먼저 점검해, 불필요한 시도와 리스크를 줄입니다.</p>
+          
+          <div class="card fade-up" style="transition-delay: 0.2s;">
+            <div class="icon-box">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="badge-soft">02 · 현실적 판단</div>
+            <h3>"가능한지" 먼저 체크</h3>
+            <p>체납, 부채비율, 업종 제한 등 필수 요건을 먼저 시뮬레이션하여 불필요한 시도와 시간 낭비를 막습니다.</p>
           </div>
-          <div class="card">
-            <div class="badge-soft">03 · 전문가 최종 판단</div>
-            <h3>데이터 위에서 사람의 경험을 더함</h3>
-            <p>프로그램이 좁혀 준 후보군 위에, 컨설턴트가 사업 내용·대표님 성향·시기 등을 반영해 우선순위를 조정합니다.</p>
+
+          <div class="card fade-up" style="transition-delay: 0.3s;">
+            <div class="icon-box">
+               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <div class="badge-soft">03 · 전문가 동행</div>
+            <h3>데이터 + 사람의 경험</h3>
+            <p>데이터가 뽑은 후보군 위에, 전문 컨설턴트가 대표님의 성향과 상황을 고려해 최적의 전략을 짭니다.</p>
           </div>
         </div>
       </div>
@@ -614,41 +895,51 @@
     <!-- 프로세스 -->
     <section id="process">
       <div class="wrap">
-        <h2 class="section-title">정책자금, 이렇게 함께 진행합니다</h2>
-        <p class="section-sub">
-          상담은 <strong>무료 진단</strong>에서 시작하지만, 그 이후 단계에서 어떤 역할을 맡는지 처음부터 분명히 안내드립니다.
-        </p>
+        <div class="section-header fade-up">
+          <h2 class="section-title">함께하는 과정</h2>
+          <p class="section-sub">
+            무료 진단부터 시작하세요. 이후 단계에서 저희가 어떤 역할을 수행하는지 투명하게 안내드립니다.
+          </p>
+        </div>
 
         <div class="grid cols-2">
-          <div class="card">
-            <h3>전체 플로우</h3>
-            <div class="timeline" aria-label="정책자금 컨설팅 진행 절차">
+          <div class="card fade-up">
+            <h3>진행 플로우</h3>
+            <div class="timeline" aria-label="컨설팅 진행 절차">
               <div class="step">
-                <div class="step-title">1단계 · 상황 진단 & 프로그램 후보 추출</div>
-                <div class="step-note">간편 설문 또는 통화로 현재 상황을 파악하고, 표준화 DB에서 조건에 맞는 프로그램을 1차 필터링합니다.</div>
+                <div class="step-title">1단계 · 상황 진단 & 니즈 파악</div>
+                <div class="step-note">간편 설문/통화로 현황 파악 후, 우리 회사에 맞는 서비스 방향을 1차 제안합니다.</div>
               </div>
               <div class="step">
-                <div class="step-title">2단계 · 우선순위·전략 설정</div>
-                <div class="step-note">현 시점에 현실적으로 노려볼 수 있는 후보만 남기고, 자금 용도·규모·시기·리스크를 고려해 전략을 세웁니다.</div>
+                <div class="step-title">2단계 · 맞춤 전략 설계</div>
+                <div class="step-note">현실적으로 실행 가능한 범위에서 우선순위를 정하고, 구체적인 로드맵을 설계합니다.</div>
               </div>
               <div class="step">
-                <div class="step-title">3단계 · 서류 준비 & 신청 지원</div>
-                <div class="step-note">필수 서류·추가 증빙을 체크리스트로 정리하고, 필요 시 사업계획(요약본)·설명 자료 작성까지 함께 준비합니다.</div>
+                <div class="step-title">3단계 · 서류 준비 & 실행</div>
+                <div class="step-note">필수 서류 체크는 물론, 사업계획서/신청서 작성 방향을 잡아드리고 함께 준비합니다.</div>
               </div>
               <div class="step">
-                <div class="step-title">4단계 · 접수·보완·결과 모니터링</div>
-                <div class="step-note">접수 현황과 보완 요청을 함께 확인하며, 결과를 정리해 이후에 노려볼 수 있는 다음 스텝까지 안내합니다.</div>
+                <div class="step-title">4단계 · 결과 관리 & 후속 지원</div>
+                <div class="step-note">보완 요청에 즉각 대응하며, 이후 활용 가능한 추가 기회까지 안내해 드립니다.</div>
               </div>
             </div>
           </div>
 
-          <div class="card">
-            <h3>유아플랜이 특히 신경 쓰는 부분</h3>
-            <ul style="margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--muted);list-style:disc;">
-              <li>대표님이 감당 가능한 <strong>부채·상환 구조인지</strong>부터 체크합니다.</li>
-              <li>일회성 자금이 아니라, <strong>향후 1~2년 흐름</strong> 속에서 어떤 프로그램을 언제 활용할지 함께 설계합니다.</li>
-              <li>자격 가능성이 낮은 영역은 솔직하게 말씀드리고, 대안 프로그램이 있다면 함께 제안드립니다.</li>
-              <li>추후 세무·노무 등 다른 전문 영역이 필요한 경우 연계가 필요한지까지 함께 고민합니다.</li>
+          <div class="card fade-up" style="transition-delay: 0.2s;">
+            <h3>유아플랜의 약속</h3>
+            <ul style="margin:16px 0 0;padding-left:18px;font-size:14px;color:var(--muted);list-style:none;">
+              <li style="margin-bottom: 12px; display: flex; gap: 8px;">
+                <span style="color:var(--accent)">✓</span>
+                <div><strong>무리한 진행은 권하지 않습니다.</strong><br/>실행 가능한 범위에서 현실적인 전략을 세웁니다.</div>
+              </li>
+              <li style="margin-bottom: 12px; display: flex; gap: 8px;">
+                <span style="color:var(--accent)">✓</span>
+                <div><strong>장기적 관점 설계</strong><br/>당장 급한 불 끄기가 아닌, 1~2년 뒤까지 고려합니다.</div>
+              </li>
+              <li style="margin-bottom: 12px; display: flex; gap: 8px;">
+                <span style="color:var(--accent)">✓</span>
+                <div><strong>솔직한 피드백</strong><br/>안 되는 것은 안 된다고 말씀드리고, 가능한 대안을 찾습니다.</div>
+              </li>
             </ul>
           </div>
         </div>
@@ -658,26 +949,28 @@
     <!-- 적합 고객 -->
     <section id="fit">
       <div class="wrap">
-        <h2 class="section-title">이런 대표님께 특히 잘 맞습니다</h2>
-        <p class="section-sub">
-          “대충 많은 지원금”이 아니라, <strong>우리 회사 상황에 맞는 현실적인 선택지</strong>를 알고 싶은 분들께 초점을 맞춥니다.
-        </p>
+        <div class="section-header fade-up">
+          <h2 class="section-title">이런 대표님께 추천합니다</h2>
+          <p class="section-sub">
+            "무조건 많이"가 아니라, <strong>"우리 회사에 딱 맞는 전략"</strong>이 필요한 분들입니다.
+          </p>
+        </div>
 
         <div class="grid cols-3">
-          <div class="card">
-            <div class="badge-soft">업력 1~3년 내외</div>
-            <h3>초기 성장 구간 사업자</h3>
-            <p>이미 사업을 시작했지만, 매출이 안정되기까지 정책자금·보증을 어떻게 활용해야 할지 감이 안 오실 때.</p>
+          <div class="card fade-up" style="transition-delay: 0.1s;">
+            <div class="badge-soft">창업 1~3년차</div>
+            <h3>초기 성장 기업</h3>
+            <p>매출이 발생하기 시작했지만, 어떤 지원을 받을 수 있는지 전체 그림이 안 보일 때 함께 정리해 드립니다.</p>
           </div>
-          <div class="card">
-            <div class="badge-soft">시설·인력·마케팅</div>
-            <h3>투자를 앞두고 있는 기업</h3>
-            <p>사무공간·장비·인력 확충, 마케팅 집행 등 큰 비용이 앞에 있을 때, 어느 지점에 어떤 자금을 쓰는 것이 좋을지 함께 설계합니다.</p>
+          <div class="card fade-up" style="transition-delay: 0.2s;">
+            <div class="badge-soft">투자·확장 준비</div>
+            <h3>성장 투자가 필요한 시점</h3>
+            <p>시설, 인력, 마케팅 등 목돈이 필요한 시점에 자금 조달 + 인증 + 지원사업을 종합적으로 설계합니다.</p>
           </div>
-          <div class="card">
-            <div class="badge-soft">체계 정비</div>
+          <div class="card fade-up" style="transition-delay: 0.3s;">
+            <div class="badge-soft">체계 정리</div>
             <h3>여러 번 시도했지만 정리가 안 된 경우</h3>
-            <p>여러 기관에 나눠서 문의해 보았지만, 전체 그림이 잡히지 않을 때 “지금 기준에서 가능한 범위”를 구조적으로 다시 정리합니다.</p>
+            <p>여러 기관에 문의해도 명확한 답을 못 얻으셨나요? 지금 기준에서 가능한 것과 불가능한 것을 정리해 드립니다.</p>
           </div>
         </div>
       </div>
@@ -686,28 +979,26 @@
     <!-- FAQ -->
     <section id="faq">
       <div class="wrap">
-        <h2 class="section-title">자주 묻는 질문</h2>
-        <p class="section-sub">
-          상담 전 대표님들이 가장 많이 물어보시는 내용을 먼저 정리했습니다.
-          실제 상황에 따라 답은 달라질 수 있으니, 구체적인 부분은 상담에서 같이 보시면 됩니다.
-        </p>
+        <div class="section-header fade-up">
+          <h2 class="section-title">자주 묻는 질문</h2>
+        </div>
 
-        <div class="grid">
+        <div class="grid fade-up">
           <div class="faq-item">
-            <div class="faq-q">업력이 거의 없는데도 상담이 가능할까요?</div>
-            <div class="faq-a">예비창업·초기창업에 특화된 프로그램도 있습니다. 다만 업력·매출이 전혀 없는 상태와 일부라도 있는 상태는 전략이 완전히 다르기 때문에, 현재 상황을 기준으로 현실적으로 노려볼 수 있는 영역부터 안내드립니다.</div>
+            <div class="faq-q">초기 창업자(매출 없음)도 가능한가요?</div>
+            <div class="faq-a">네, 예비창업/초기창업 전용 지원사업이 별도로 존재합니다. 매출보다는 사업 아이템과 대표자 역량을 주로 평가하며, 이에 맞는 전략을 세워드립니다.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-q">체납이나 연체 이력이 있으면 모두 불가능한가요?</div>
-            <div class="faq-a">많은 프로그램에서 제한 요인이 되지만, 종류·시점·해소 여부에 따라 달라집니다. “가능/불가”를 단순히 나누기보다, 리스크를 솔직히 말씀드리고 대체 가능한 방향이 있는지 함께 검토합니다.</div>
+            <div class="faq-q">세금 체납이나 연체가 있어도 되나요?</div>
+            <div class="faq-a">원칙적으로는 어렵지만, 상황에 따라 다릅니다. 이미 해소되었거나 특수한 경우 예외가 있을 수 있으니, 상담 시 솔직하게 말씀해 주시면 대안을 찾아드립니다.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-q">컨설팅 비용은 어떻게 책정되나요?</div>
-            <div class="faq-a">기본 진단과 프로그램 제안 단계까지는 무료로 진행합니다. 이후 실제 신청·서류 준비·보완 대응까지 동행이 필요할 경우에만 별도의 구조를 설명드리고, 대표님이 동의하실 때에만 진행합니다.</div>
+            <div class="faq-q">컨설팅 비용은 언제 발생하나요?</div>
+            <div class="faq-a">기본 상담과 가능성 진단은 100% 무료입니다. 실제 진행을 위한 계약 체결 시에만 비용이 발생하며, 이는 사전에 투명하게 협의합니다.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-q">어떤 자료를 미리 준비해 두면 좋을까요?</div>
-            <div class="faq-a">최근 1~2년 재무 상황(매출·이익 추이), 기존 대출·보증 현황, 계획 중인 투자 항목(시설·인력·마케팅 등)이 정리되어 있으면 상담이 훨씬 정확해집니다. 정리가 안 되어 있어도 상담 과정에서 함께 정리해 드립니다.</div>
+            <div class="faq-q">상담 시 준비물은 무엇인가요?</div>
+            <div class="faq-a">사업자등록증, 최근 재무제표 정도만 있어도 깊이 있는 상담이 가능합니다. 없으셔도 대략적인 수치만 알고 계시면 1차 진단은 가능합니다.</div>
           </div>
         </div>
       </div>
@@ -716,52 +1007,54 @@
     <!-- 문의 -->
     <section id="contact">
       <div class="wrap">
-        <h2 class="section-title">문의 및 연락처</h2>
-        <p class="section-sub">
-          편하신 채널로 연락을 남겨주시면, 가능한 시간대를 고려해 순차적으로 연락드리고 있습니다.
-        </p>
+        <div class="section-header fade-up">
+          <h2 class="section-title">문의하기</h2>
+          <p class="section-sub">
+            고민할 시간에 무료 진단을 받아보세요. 길이 보입니다.
+          </p>
+        </div>
 
         <div class="grid cols-2">
-          <div class="card">
-            <h3>상담 채널</h3>
-            <p style="font-size:13px;margin-top:4px;margin-bottom:10px;">
-              빠른 상담을 원하시면 <strong>카카오 채널</strong> 또는 <strong>간편 설문</strong>을 추천드립니다.
+          <div class="card fade-up">
+            <h3>상담 신청 채널</h3>
+            <p style="margin:8px 0 20px;">
+              가장 빠른 답변을 원하시면 <strong>설문 작성</strong> 또는 <strong>카카오톡</strong>을 이용해 주세요.
             </p>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
               <a class="btn-primary"
                  href="https://youareplan-landing.onrender.com"
                  target="_blank"
-                 rel="noopener">
-                정책자금 무료 상담 신청
+                 rel="noopener noreferrer" style="flex:1; text-align:center;">
+                무료 진단 신청
               </a>
               <a class="btn-kakao"
                  href="http://pf.kakao.com/_LWxexmn/chat"
                  target="_blank"
-                 rel="noopener">
-                카카오톡 1:1 상담
+                 rel="noopener noreferrer" style="flex:1; text-align:center;">
+                카카오톡 문의
               </a>
             </div>
-            <p style="font-size:12px;color:var(--muted);margin:0;">
-              대표번호: 1661-8804<br />
-              이메일: <a href="mailto:youareplan@naver.com">youareplan@naver.com</a><br />
-              카카오 채널: <a href="https://pf.kakao.com/_LWxexmn" target="_blank" rel="noopener">유아플랜 정책자금 컨설팅</a>
-            </p>
+            <div style="font-size:13px;color:var(--muted); line-height: 1.8; border-top: 1px solid var(--border); padding-top: 16px;">
+              <div><strong>전화 상담</strong> 1661-8804 (평일 10:00 - 18:00)</div>
+              <div><strong>이메일</strong> <a href="mailto:youareplan@naver.com">youareplan@naver.com</a></div>
+              <div><strong>채널</strong> <a href="https://pf.kakao.com/_LWxexmn" target="_blank" rel="noopener noreferrer">카카오톡 '유아플랜' 검색</a></div>
+            </div>
           </div>
 
-          <div class="card">
+          <div class="card fade-up" style="transition-delay: 0.1s;">
             <h3>사업자 정보</h3>
-            <div class="info-table" style="margin-top:10px">
+            <div class="info-table" style="margin-top:16px">
               <div class="info-row">
                 <div class="info-cell info-head">상호</div>
                 <div class="info-cell">유아플랜</div>
               </div>
               <div class="info-row">
-                <div class="info-cell info-head">사업자번호</div>
-                <div class="info-cell">515-10-64034</div>
+                <div class="info-cell info-head">대표자</div>
+                <div class="info-cell">김대환</div>
               </div>
               <div class="info-row">
-                <div class="info-cell info-head">대표</div>
-                <div class="info-cell">김대환</div>
+                <div class="info-cell info-head">사업자번호</div>
+                <div class="info-cell">515-10-64034</div>
               </div>
               <div class="info-row">
                 <div class="info-cell info-head">웹사이트</div>
@@ -778,16 +1071,59 @@
   <!-- Footer -->
   <footer>
     <div class="wrap">
-      <div><strong>유아플랜 컨설팅</strong> · youareplan.co.kr</div>
-      <div class="policy">
-        <a href="#">개인정보처리방침</a>
-        <a href="#">이용약관</a>
+      <div>
+        <strong style="color: #fff; font-size: 14px;">유아플랜 컨설팅</strong><br/>
+        중소기업 자금·성장 전략 파트너
       </div>
       <div>© 2025 YouArePlan Consulting. All rights reserved.</div>
     </div>
   </footer>
 
   <!-- Back to top -->
-  <a class="top" href="#top">TOP</a>
+  <a class="top" href="#top" aria-label="맨 위로">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+
+    // Scroll Animation Observer
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const fadeElements = document.querySelectorAll('.fade-up');
+      fadeElements.forEach(el => observer.observe(el));
+      
+      // Back to top visibility
+      const topBtn = document.querySelector('.top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          topBtn.classList.add('visible');
+        } else {
+          topBtn.classList.remove('visible');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
